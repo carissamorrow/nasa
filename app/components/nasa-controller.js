@@ -2,10 +2,17 @@ import nasaService from "./nasa-service.js";
 
 let _nasaService = new nasaService()
 
-function _draw(Apod) {
+function _draw(apod) {
+  let template = ''
+  if (apod.type == 'image') {
+    template = `<img src="${apod.img}"</img>`
+  } else {
+    template = `<iframe src="${apod.img}"></iframe>`
+  }
+  template += `<h4>${apod.date}</h4>`
+  document.getElementById('test-id').innerHTML = template
 
-  let template = `<h3>${Apod.url}</h3>`
-  document.getElementById('test-id').innerHTML = template;
+
 }
 
 export default class nasaController {
@@ -15,7 +22,5 @@ export default class nasaController {
 
   }
 
-  getApod(date) {
 
-  }
 }

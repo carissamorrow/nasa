@@ -1,6 +1,7 @@
 export default class nasa {
   constructor(data) {
     this.date = data.date
+    this.type = data.media_type
     this.img = data.url
   }
   getImageHTML() {

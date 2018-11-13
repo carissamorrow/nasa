@@ -4,7 +4,7 @@ import Nasa from "../models/nasa.js";
 let _nasaAPI = axios.create({
   baseURL: 'https://api.nasa.gov/planetary/'
 })
-let _apiKey = '97LAlPaZ5cJhD2kmsw2Sw86LFZolCQaKYtdh4gWP'
+let _apiKey = '97LAlPaZ5cJhD2kmsw2Sw86LFZolCQaKYtdh4gWP&date=2018-11-12'
 
 
 export default class nasaService {
