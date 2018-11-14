@@ -15,12 +15,17 @@ function _draw(apod) {
 
 }
 
+
 export default class nasaController {
   constructor() {
     console.log('hello from n-controller')
     _nasaService.getApod(_draw)
 
   }
-
+  getSpecificDate(event) {
+    event.preventDefault()
+    let date = event.target.date.value;
+    _nasaService.getApod(_draw, date)
+  }
 
 }
