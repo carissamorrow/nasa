@@ -12,6 +12,21 @@ export default class nasaService {
 
   }
 
+  addApod(formData, fnToRunOnSuccess) {
+
+    if (!formData) {
+      throw new Error("you must supply form data")
+    }
+    if (typeof fnToRunOnSuccess != 'function') {
+      throw new Error("You must supply a success function")
+    }
+    _nasaAPI.post('', formData)
+      .then(res => {
+        this.addApod(fnToRunOnSuccess)
+      })
+      .catch(err => console.log(err))
+  }
+
   getApod(_draw, date) {
     let requestString = 'apod?api_key=' + _apiKey
     if (date) {
@@ -26,5 +41,9 @@ export default class nasaService {
       .catch(error => {
         console.log(error)
       })
+    return fetch(
+      `https://api.nasa.gov/planetary/apod?api_key=${_apiKey}&date=${date}`
+    )
   }
+
 }

@@ -11,14 +11,14 @@ function _draw(apod) {
   }
   template += `<h4>${apod.date}</h4>`
   document.getElementById('test-id').innerHTML = template
-
-
 }
-
+function drawError(error) {
+  console.log(error);
+  document.getElementById("error").innerHTML = error.message;
+}
 
 export default class nasaController {
   constructor() {
-    console.log('hello from n-controller')
     _nasaService.getApod(_draw)
 
   }
@@ -29,3 +29,4 @@ export default class nasaController {
   }
 
 }
+
